@@ -1,0 +1,73 @@
+<!-- Mouse Over Actions -->
+ <div onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Section</div>
+<hr>
+
+ <!-- Capitalize Input Data -->
+  Enter Some Data:
+  <input type="text" id="firstName" onchange="upperCase1()">
+<hr>
+  Enter Again TO see difrence:
+  <input type="text" id="upName" oninput="upperCase()">
+<hr>
+
+<!-- Mouse Up and Down FUnctions -->
+  <div onmouseup="mouseUp(this)" onmousedown="mouseDown(this)">
+    Click Here
+  </div>
+<hr>
+  <!-- Actions Listeners -->
+<button id="act">Push ME</button>
+
+
+
+ <!-- Script -->
+
+ 
+<script>
+    // To Change Values When Mouse Over
+    function mouseOver(obj){
+        obj.innerHTML = "Mouse Over Working";
+    }
+    function mouseOut(obj){
+        obj.innerHTML = "Original Text";
+    }
+
+    // to capitalize or change input values 
+    function upperCase1(){
+        const x = document.getElementById('firstName');
+        x.value = x.value.toUpperCase();
+    }
+
+    function upperCase(){
+        const x = document.getElementById('upName');
+        x.value = x.value.toUpperCase();
+    }
+
+    // To give Style and Text to A HTML page On Mouse Click and RElease 
+    function mouseUp(obj){
+        obj.innerHTML = "Thank You!"
+        obj.style.backgroundColor = 'gray'
+    }
+
+    function mouseDown(obj){
+        obj.innerHTML = "Release me!"
+        obj.style.backgroundColor = 'green';
+    }
+
+    // Give Button Actions
+    document.getElementById('act').addEventListener('click',function(){alert("Good Work !");});
+
+</script>
+
+ <!-- Style -->
+ <style>
+    div {
+        background-color: gray;
+        width: 120px;
+        height: 20px;
+        padding: 40px;
+        color: white;
+        text-align: center;
+
+    }
+ </style>

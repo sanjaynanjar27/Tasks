@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/home/hp/Desktop/DemoData/HTML & CSS/style.css"></head>
+    <title>Python Patterns</title>
+</head>
+<style type="text/css">
+ 
+</style>
+
+
+<body style="background-color: darkgray;">
+<h1 style="text-align:center; color: blue; border: 2px solid tomato;"><ins>Making Square Pyramid Using Python</ins></h1> 
+
+     
+     <p title="About Coding" style="text-align:center;">This IS Basic Code how to create a square pyramid and it's output<br><a href="https://www.google.com" target="_blank" style="text-align:center;">This Is Link To Google for any help</a></p>
+
+     <pre style="font-size: 20px; background-color: lightskyblue; font-family: courier;">
+       rows = int(input("Enter Size of your square pyramid"))
+
+        # Top Triangle
+        for i in range(rows):
+            for j in range(1, rows - i + rows): # Putting Space To the top Part
+                print(" ", end=' ')
+            for j in range(2 * i+1): # Printing Top
+                print("T ", end='')
+            print(' ')
+
+        # This is upper half
+        for i in range(1, rows):
+            for j in range(rows - i):  # Space before left part
+                print(" ", end=' ')
+            for k in range(i): # This is right part but only half
+                print("R", end=' ')
+            for j in range(1,rows*2): # This is Upper half square
+                print(" ",end=" ")
+            for j in range(i): #Left part of Upper Half
+                print("L",end=' ')
+            print()
+
+        for i in range(rows,0,-1):
+            for j in range(rows-i): # Space before Lower Right part
+                print(" ",end=' ')
+            for k in range(i): # Bottom Right part
+                print("R",end=' ')
+            for j in range(1,rows*2):
+                print(" ",end=" ")  #Bottom Square
+            for j in range(i ):
+                print("L",end=" ") # Bottom LEft Part
+            print()
+
+        # Bottom
+        for i in range(rows,0, -1):
+                for k in range(1, rows - i+rows+1):
+                    print(" ", end=' ')
+                for k in range(2 * i - 1):
+                    print("B", end=' ')
+                print(" ")
+     </pre>
+     <h2>Output:</h2>
+
+     <!-- This is how we insert image in an HTML file which we can alter after primary elements are URL and its size -->
+     <img  src="/home/hp/Desktop/DemoData/HTML & CSS/img.png" alt="Image Of A Square Pyramid" width="500" height="600">
+
+
+
+     <p title="just an 'Example'">Use Double quotes if you want title items in single quotes</p>
+     <p title='just an "Example"'>Use Single quotes if you want title items in Double quotes</p>
+
+     
+<bdo dir="rtl">This text will be written from right to left</bdo>
+
+<p><a href="mailto:sanjaymaheswari0406@gmail.com"> Mail FOr ANy Questions..</a></p>
+
+
+
+<hr>
+
+<p><a href="#C4">Jump To Chapter 4</a></p>
+<p><a href="#C10">Jump To Chapter 10</a></p>
+
+
+<h2>Chapter 1</h2>
+<p>This chapter explains ba bla bla</p>
+
+<h2>Chapter 2</h2>
+<p>This chapter explains ba bla bla</p>
+
+<h2>Chapter 3</h2>
+<p>This chapter explains ba bla bla</p>
+
+<h2 id="C4">Chapter 4</h2>
+<p>This chapter explains ba bla bla</p>
+
+<h2>Chapter 5</h2>
+<p>This chapter explains ba bla bla</p>
+
+<h2>Chapter 6</h2>
+<p>This chapter explains ba bla bla</p>
+
+<h2>Chapter 7</h2>
+<p>This chapter explains ba bla bla</p>
+
+
+<!-- can access data from another file also -->
+<a href="html_demo.html#C4">Jump to Chapter 4</a>
+
+
+<!-- Image from online source -->
+
+<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Workplace" usemap="#workmap">
+
+<map name="workmap">
+  <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.html">
+  <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.html">
+  <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.html">
+</map>
+
+</body>
+</html>

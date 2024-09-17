@@ -1,0 +1,95 @@
+
+<h2>Here In Form We Have To Enter Some Input / Alert Validation</h2>
+<!------------------------------------------------------>
+
+<form name="data" action="data.php" onsubmit="return dataValidation()" method="post">
+    Name : <input type="text" name="name">
+    <input type="submit" name="save" value="Save">
+</form>
+<!------------------------------------------------------>
+<h2>Here We Have to Enter Valid Input From Given / Information innerHTML for warning</h2>
+
+<label for="">Enter Value Between 1 to 10</label>
+<input type="number" name="data" id="num">
+<input type="button" name="save" onclick="myValidation()" value="Submits">
+<p id = 'outPut'></p>
+
+<!------------------------------------------------------>
+<h2>Changing CSS of givern Data Using Js</h2>
+
+<h2 id="clr">Click The Button To Change Font Color</h2>
+<button onclick="changeCSS()">Save</button>
+
+<!------------------------------------------------------>
+<h2>Animation Using Java Script</h2>
+
+<div id ="container">
+    <div id ="animate"></div>
+</div>
+<button onclick="doAnimation()">Start</button>
+<!------------------------------------------------------>
+<!-- js -->
+<script>
+    // Validation of data using form values
+
+    function dataValidation(){
+        let d = document.forms["data"]["name"].value;
+        if (d == ""){
+            alert("Enter Valid Data")
+            return false;
+        }
+    }
+    // Validation Using Input
+    function myValidation(){
+        let num = document.getElementById('num').value;
+        let text;
+        if (isNaN(num) || num < 1 || num > 10){
+            text = "invalid Input"
+        } else {
+            text = "OK";
+        }
+        document.getElementById('outPut').innerHTML = text
+    }
+    // Changing CSS
+    function changeCSS(){
+        document.getElementById('clr').style.color = "red";
+
+    }
+
+    // Animation Using Position and CSS
+    function doAnimation(){
+        let id = null;
+        const anim_container = document.getElementById('animate');
+        let position = 0;
+        clearInterval(id);
+        id = setInterval(frame, 5);
+        function frame(){
+            if (position == 170){
+                clearInterval(id);
+            } else {
+                position++;
+                anim_container.style.top = position + 'px';
+                anim_container.style.left = position + 'px';
+
+            }
+        }
+
+    }
+</script>
+<!------------------------------------------------------>
+<!-- CSS -->
+<style>
+#container {
+    width: 400px;
+    height: 400px;
+    position: relative; 
+    background-color:gray;  
+}
+
+#animate {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: aqua;
+}
+</style>

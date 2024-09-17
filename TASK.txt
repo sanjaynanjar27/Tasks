@@ -1,0 +1,15 @@
+Today's Work Status :-
+_____________________________________________________
+Introduction,
+CRUD Operations, 
+Drop, Alter,
+Create schema, Group By, 
+Order By,Join, inner join, 
+Left Join, Right join, 
+Full join, Cross Join
+
+
+
+Today's Work Plan :-
+__________________________
+Learning Git 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<p id="demo"></p>
+
+<script>
+
+    // First way to call this functions 
+    // function myPrinter(a){
+    //     document.getElementById('demo').innerHTML = a;
+    // }
+
+    // function myCounter(x,y,aData){
+    //     let z = x + y
+    //     aData(z)
+    // }
+
+    // myCounter(3,5,myPrinter)
+
+    // // Other way to call the function
+    // function myCounter(x,y){
+    //     let sum = x + y;
+    //     myPrinter(sum);
+    // }
+    // myCounter(55,23);
+
+    const myArry = [4, 1, -20, -7, 5, 9, -6];
+    const positiveNums = removeNeg(myArry,(x) => x >= 0);
+    document.getElementById('demo').innerHTML = positiveNums;
+
+    function removeNeg(numbers, callback){
+        const newArray = [];
+        for (const x of numbers){
+            if (callback(x)){
+                newArray.push(x)
+            }
+        }
+        return newArray;
+    }
+</script>
+</body>
+</html>

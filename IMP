@@ -1,0 +1,664 @@
+_____________________________Installation_____________________________
+
+1) - Installing POstgresql 
+	sudo apt-get install postgresql postgresql-contrib
+	
+_____________________________USING SERVICES_____________________________
+2) - See What services it providesus :
+	service postgresql
+	
+	
+_____________________________ENTERING POSTGRESQL_____________________________	
+3) - Sudo su postgres :
+	[sudo] password for hp: 
+	
+	postgres@hp-HP-EliteBook-840-G6:/home/hp$ psql
+	
+	- psql to enter directory
+	
+	
+_____________________________\l _____________________________	
+4) \l - List of databases:
+
+_____________________________ \du (List all Roles) _____________________________
+5) \du - list of Roles:
+
+_____________________________ ALTERING PASSWORD OF USER _____________________________
+6) postgres=#   alter user postgres with password 'Your Passkey';
+	- to alter user password
+
+_____________________________
+postgres=# \l
+                             List of databases
+   Name    |  Owner   | Encoding | Collate | Ctype |   Access privileges   
+-----------+----------+----------+---------+-------+-----------------------
+ postgres  | postgres | UTF8     | en_IN   | en_IN | 
+ template0 | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+           |          |          |         |       | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+           |          |          |         |       | postgres=CTc/postgres
+
+_____________________________CREATING USER_____________________________
+postgres=# \du
+postgres=# create user user_9 with password 'kiran$123';
+CREATE ROLE
+postgres=# \du
+                                   List of roles
+ Role name |                         Attributes                         | Member of 
+-----------+------------------------------------------------------------+-----------
+ postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ user_59   | Superuser                                                  | {}
+ user_9                                       List of roles
+_____________________________DROP TABLE_____________________________
+postgres=# drop user user_9;
+DROP ROLE
+postgres=# \l
+                             List of databases
+   Name    |  Owner   | Encoding | Collate | Ctype |   Access privileges   
+-----------+----------+----------+---------+-------+-----------------------
+ postgres  | postgres | UTF8     | en_IN   | en_IN | 
+ template0 | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+           |          |          |         |       | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+           |          |          |         |       | postgres=CTc/postgres
+           
+
+_________________________________________CREATE AND DISPLAY_________________________________________________________
+postgres=#    create table emp(name varchar(10), age INT, subject VARCHAR(25)); 
+CREATE TABLE
+postgres=# 
+
+
+postgres=# select * from emp;
+ name  | age | subject 
+-------+-----+---------
+ kiran |  22 | python
+(1 row)
+_________________________________________ INSERT AND DISPLAY _________________________________________________________
+postgres=# INSERT INTO emp VALUES('shailesh', 24, 'java');
+INSERT 0 1
+postgres=# select * from emp;
+   name   | age | subject 
+----------+-----+---------
+ kiran    |  22 | python
+ shailesh |  24 | java
+(2 rows)
+______________________________________DISPLAY DATA____________________________________________________________
+postgres=# select age from emp;
+ age 
+-----
+  22
+  24
+(2 rows)
+
+postgres=# alter table emp add emp_id varchar(21);
+ALTER TABLE
+postgres=# select * from emp;
+   name   | age | subject | task | emp_id 
+----------+-----+---------+------+--------
+ shailesh |  24 | java    |      | 
+ kiran    |  22 | python  | yes  | 
+(2 rows)
+__________________________________________________________________________________________________
+postgres=# update emp set task = 'no' where age = 24;
+UPDATE 1
+____________________________________________UPDATE TABLE______________________________________________________
+LINE 1: update emp set task emp_id = JSN1231;
+postgres=# INSERT INTO  emp task where emp_id = JSN1231;
+postgres=# INSERT INTO  emp emp_id = 123124 where age = 24;
+
+
+_________________________________________ UPDATE TABLE _________________________________________________________                 
+postgres=# update emp set emp_id = '241233SADS' where age = 24;
+UPDATE 1
+postgres=# update emp set emp_id = '241233SADP' where age = 22;
+UPDATE 1
+postgres=# select * from emp;
+   name   | age | subject | task |   emp_id   
+----------+-----+---------+------+------------
+ shailesh |  24 | java    | no   | 241233SADS
+ kiran    |  22 | python  | yes  | 241233SADP
+(2 rows)
+
+
+______________________________________________Alter Table * ADD *___________________________________________________
+postgres=# ALTER TABLE emp ADD task varchar(4);
+ALTER TABLE
+postgres=# select * from emp;
+
+   name   | age | subject | task 
+----------+-----+---------+------
+ kiran    |  22 | python  | 
+ shailesh |  24 | java    | 
+(2 rows)
+
+___________________________________________________Update Table___________________________________________________                       
+postgres=# update emp set task = 'yes' where age = 22;
+UPDATE 1
+postgres=# select * from emp;
+   name   | age | subject | task 
+----------+-----+---------+------
+ shailesh |  24 | java    | 
+ kiran    |  22 | python  | yes
+(2 rows)
+
+
+___________________________________________ ALTER TABLE * DROP *_______________________________________________________
+   name   | age | subject | task |   emp_id   
+----------+-----+---------+------+------------
+ shailesh |  24 | java    | no   | 241233SADS
+ kiran    |  22 | python  | yes  | 241233SADP
+(2 rows)
+
+postgres=# ALTER TABLE emp DROP COLUMNN task;
+
+
+postgres=# select * from emp;
+   name   | age | subject |   emp_id   
+----------+-----+---------+------------
+ shailesh |  24 | java    | 241233SADS
+ kiran    |  22 | python  | 241233SADP
+ 
+ _______________________________________________________Delete_______________________________________________________
+ DELETE FROM emp WHERE subject = 'java';
+DELETE 1
+
+postgres=# select * from emp;
+ name  | age | subject |   emp_id   
+-------+-----+---------+------------
+ kiran |  22 | python  | 241233SADP
+
+______________________________________Create TABLE____________________________________________________________
+Drop Table
+DROP TABLE cars;
+
+-- Create the table
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    phone VARCHAR(15),
+    email VARCHAR(100),
+    joining_year INT
+);
+
+-- Insert data into the table-
+INSERT INTO employees (emp_id, emp_name, phone, email, joining_year) VALUES
+(1001, 'Alice Johnson', '555-1234', 'alice.johnson@example.com', 2020),
+(1002, 'Bob Smith', '555-5678', 'bob.smith@example.com', 2019),
+(1003, 'Carol White', '555-8765', 'carol.white@example.com', 2021),
+(1004, 'David Brown', '555-4321', 'david.brown@example.com', 2018),
+(1005, 'Emma Davis', '555-3456', 'emma.davis@example.com', 2022),
+(1006, 'Frank Green', '555-6543', 'frank.green@example.com', 2020),
+(1007, 'Grace Hall', '555-7890', 'grace.hall@example.com', 2023),
+(1008, 'Henry Clark', '555-0987', 'henry.clark@example.com', 2021),
+(1009, 'Iris Martin', '555-1122', 'iris.martin@example.com', 2019),
+(1010, 'Jack Lee', '555-2233', 'jack.lee@example.com', 2022);	 
+
+__________________________________________\d <table name>________________________________________________________
+postgres-# \d emp
+                        Table "public.emp"
+ Column  |         Type          | Collation | Nullable | Default 
+---------+-----------------------+-----------+----------+---------
+ name    | character varying(10) |           |          | 
+ age     | integer               |           |          | 
+ subject | character varying(25) |           |          | 
+ emp_id  | character varying(21) |           |          | 
+
+
+postgres-# \d employees
+                        Table "public.employees"
+    Column    |          Type          | Collation | Nullable | Default 
+--------------+------------------------+-----------+----------+---------
+ emp_id       | integer                |           | not null | 
+ emp_name     | character varying(50)  |           |          | 
+ phone        | character varying(15)  |           |          | 
+ email        | character varying(100) |           |          | 
+ joining_year | integer                |           |          | 
+
+________________________________________________\d+ <table name> __________________________________________________
+                                                   Table "public.emp"
+ Column  |         Type          | Collation | Nullable | Default | Storage  | Compression | Stats target | Description 
+---------+-----------------------+-----------+----------+---------+----------+-------------+--------------+-------------
+ name    | character varying(10) |           |          |         | extended |             |              | 
+ age     | integer               |           |          |         | plain    |             |              | 
+ subject | character varying(25) |           |          |         | extended |             |              | 
+ emp_id  | character varying(21) |           |          |         | extended |             |              | 
+Access method: heap
+
+________________________________________________\dn ____________________________________________________
+List of schemas
+  Name  |  Owner   
+--------+----------
+ public | postgres
+
+
+_____________________________________________\du ___________________________________________________________
+
+                                  List of roles
+ Role name |                         Attributes                         | Member of 
+-----------+------------------------------------------------------------+-----------
+ postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ user_59   | Superuser                                                  | {}
+
+____________________________________________\df____________________________________________________________
+
+                       List of functions
+ Schema | Name | Result data type | Argument data types | Type 
+--------+------+------------------+---------------------+------
+(0 rows)
+
+____________________________________________________________\dt____________________________________________________________
+           List of relations
+ Schema |   Name    | Type  |  Owner   
+--------+-----------+-------+----------
+ public | emp       | table | postgres
+ public | employees | table | postgres
+(2 rows)
+
+
+____________________________________________________________Boolean Datatype Category____________________________________________________________
+
+INSERT INTO book_avail (book_id, available) values (100, TRUE),
+    (200, FALSE),
+    (300, 't'),
+    (400, '1'),
+    (500, 'y'),
+    (600, 'yes'),
+    (700, 'no'),
+    (800, '0');
+INSERT 0 8
+
+bookstore=# SELECT * FROM book_avail;
+ book_id | available 
+---------+-----------
+     100 | t
+     200 | f
+     300 | t
+     400 | t
+     500 | t
+     600 | t
+     700 | f
+     800 | f
+(8 rows)
+
+______________________________________________________Date__________________________________________________________________
+
+bookstore=# INSERT INTO employees (first_name, last_name, birth_date)
+VALUES ('Raju', 'Kumar', '1996-12-02'),
+       ('Nikhil', 'Aggarwal', '1997-08-24'),
+       ('Anshul', 'Aggarwal', '1994-05-11');
+SELECT * FROM employees;
+INSERT 0 3
+ employee_id | first_name | last_name | birth_date 
+-------------+------------+-----------+------------
+           1 | Raju       | Kumar     | 1996-12-02
+           2 | Nikhil     | Aggarwal  | 1997-08-24
+           3 | Anshul     | Aggarwal  | 1994-05-11
+(3 rows)
+
+bookstore=# select first_name, last_name, AGE(birth_date) as age from employees;
+ first_name | last_name |           age           
+------------+-----------+-------------------------
+ Raju       | Kumar     | 27 years 9 mons 14 days
+ Nikhil     | Aggarwal  | 27 years 23 days
+ Anshul     | Aggarwal  | 30 years 4 mons 5 days
+
+______________________________________________________Time__________________________________________________________________
+create table teachers(teacher_id serial PRIMARY KEY, first_name VARCHAR(255), class_time TIME not null, class_out TIME not null);
+
+bookstore=# select * from teachers;
+ teacher_id | first_name | class_time | class_out 
+------------+------------+------------+-----------
+          1 | Jit        | 09:00:00   | 10:00:00
+          2 | Kamal      | 09:00:00   | 18:00:00
+          3 | Nayan      | 10:00:00   | 19:00:00
+          4 | Vipul      | 09:00:00   | 18:00:00
+          5 | Shreya     | 11:00:00   | 20:00:00
+          6 | Jiya       | 10:00:00   | 19:00:00
+
+
+_____________________________Concate_____________________________
+
+select concat(first_name,' ', last_name) as name from employees;
+      name       
+-----------------
+ Raju Kumar
+ Nikhil Aggarwal
+ Anshul Aggarwal
+ sanjay nanjar
+(4 rows)
+__________________
+select first_name || ' ' || last_name AS full_name, birth_date from employees;
+;
+    full_name    | birth_date 
+-----------------+------------
+ Raju Kumar      | 1996-12-02
+ Nikhil Aggarwal | 1997-08-24
+ Anshul Aggarwal | 1994-05-11
+ sanjay nanjar   | 2001-09-30
+
+
+_____________________________Remove Duplicates___________________________________
+postgres=# select distinct joining_year from employees;
+ joining_year 
+--------------
+         2022
+         2018
+         2020
+         2023
+         2019
+         2021
+(6 rows)
+_____________________________Order By_____________________________
+postgres=# select emp_name, email from employees order by joining_year;
+   emp_name    |           email           
+---------------+---------------------------
+ David Brown   | david.brown@example.com
+ Bob Smith     | bob.smith@example.com
+ Iris Martin   | iris.martin@example.com
+ Alice Johnson | alice.johnson@example.com
+ Frank Green   | frank.green@example.com
+ Henry Clark   | henry.clark@example.com
+ Carol White   | carol.white@example.com
+ Jack Lee      | jack.lee@example.com
+ Emma Davis    | emma.davis@example.com
+ Grace Hall    | grace.hall@example.com
+
+_____________________________ Limited Output_____________________________
+postgres=# select * from employees LIMIT 5;
+ emp_id |   emp_name    |  phone   |           email           | joining_year 
+--------+---------------+----------+---------------------------+--------------
+   1001 | Alice Johnson | 555-1234 | alice.johnson@example.com |         2020
+   1002 | Bob Smith     | 555-5678 | bob.smith@example.com     |         2019
+   1003 | Carol White   | 555-8765 | carol.white@example.com   |         2021
+   1004 | David Brown   | 555-4321 | david.brown@example.com   |         2018
+   1005 | Emma Davis    | 555-3456 | emma.davis@example.com    |         2022
+
+
+_____________________________Fetch First Limited rows only_____________________________
+postgres=# select * from employees fetch first 4 rows only;
+ emp_id |   emp_name    |  phone   |           email           | joining_year 
+--------+---------------+----------+---------------------------+--------------
+   1001 | Alice Johnson | 555-1234 | alice.johnson@example.com |         2020
+   1002 | Bob Smith     | 555-5678 | bob.smith@example.com     |         2019
+   1003 | Carol White   | 555-8765 | carol.white@example.com   |         2021
+   1004 | David Brown   | 555-4321 | david.brown@example.com   |         2018
+
+_____________________________Count Elements in one group_____________________________
+postgres=# select joining_year, COUNT(*) from employees group by joining_year;
+ joining_year | count 
+--------------+-------
+         2022 |     2
+         2018 |     1
+         2020 |     2
+         2023 |     1
+         2019 |     2
+         2021 |     2
+(6 rows)
+
+postgres=# select joining_year, COUNT(*) from employees group by joining_year having count(*) > 1;
+ joining_year | count 
+--------------+-------
+         2022 |     2
+         2020 |     2
+         2019 |     2
+         2021 |     2
+(4 rows)
+
+_____________________________Select DiStinct_____________________________
+postgres=# select * from employees where emp_name like 'K%';
+ emp_id |    emp_name     |  phone   |            email            | joining_year 
+--------+-----------------+----------+-----------------------------+--------------
+     11 | Karen Scott     | 555-0110 | karen.scott@example.com     |         2021
+     37 | Katie Clark     | 555-0136 | katie.clark@example.com     |         2020
+     63 | Katherine Moore | 555-0162 | katherine.moore@example.com |         2022
+     
+     
+_____________________________Select Distinct_____________________________
+select emp_id, emp_name from employees order by emp_name offset 4 rows fetch first 28 rows only;
+
+ emp_id |     emp_name     
+--------+------------------
+      2 | Bob Johnson
+   1002 | Bob Smith
+     28 | Brandon Moore
+     54 | Brian Clark
+   1003 | Carol White
+     55 | Catherine Taylor
+      3 | Charlie Brown
+     29 | Cynthia King
+     30 | Daniel Lewis
+     56 | David Brown
+   1004 | David Brown
+      4 | David White
+     31 | Ella Walker
+     57 | Ella White
+   1005 | Emma Davis
+      5 | Eva Green
+      6 | Frank Black
+   1006 | Frank Green
+     58 | Frank Young
+     32 | Freddie Harris
+     33 | Gina Bell
+     59 | Grace Adams
+   1007 | Grace Hall
+      7 | Grace Lee
+      8 | Hannah Turner
+     60 | Harrison Lewis
+     34 | Henry Allen
+   1008 | Henry Clark
+(28 rows)
+
+_____________________________Like_____________________________
+postgres=# select emp_name from employees where emp_name like '_ar%';
+    emp_name    
+----------------
+ Carol White
+ Karen Scott
+ Yara Smith
+ Harrison Lewis
+(4 rows)
+
+
+_____________________________Distinct Search_____________________________
+postgres=# select COUNT(distinct joining_year) from employees;
+ count 
+-------
+     6
+(1 row)
+
+postgres=# select distinct joining_year from employees;
+ joining_year 
+--------------
+         2019
+         2021
+         2020
+         2023
+         2022
+         2018
+(6 rows)
+
+
+_____________________________ Order By_____________________________
+postgres=# select * from employees order by joining_year DESC limit 19;
+ emp_id |   emp_name    |  phone   |           email           | joining_year 
+--------+---------------+----------+---------------------------+--------------
+     49 | Walter Wright | 555-0148 | walter.wright@example.com |         2023
+     26 | Zach Lee      | 555-0125 | zach.lee@example.com      |         2023
+     59 | Grace Adams   | 555-0158 | grace.adams@example.com   |         2023
+     74 | Vera Scott    | 555-0173 | vera.scott@example.com    |         2023
+     16 | Paul Baker    | 555-0115 | paul.baker@example.com    |         2023
+     40 | Nathan King   | 555-0139 | nathan.king@example.com   |         2023
+     30 | Daniel Lewis  | 555-0129 | daniel.lewis@example.com  |         2023
+     54 | Brian Clark   | 555-0153 | brian.clark@example.com   |         2023
+     64 | Liam Green    | 555-0163 | liam.green@example.com    |         2023
+     69 | Quinn Rogers  | 555-0168 | quinn.rogers@example.com  |         2023
+     44 | Rebecca Hall  | 555-0143 | rebecca.hall@example.com  |         2023
+     35 | Ivy Young     | 555-0134 | ivy.young@example.com     |         2023
+   1007 | Grace Hall    | 555-7890 | grace.hall@example.com    |         2023
+     21 | Uma Patel     | 555-0120 | uma.patel@example.com     |         2023
+     34 | Henry Allen   | 555-0133 | henry.allen@example.com   |         2022
+     39 | Megan Lee     | 555-0138 | megan.lee@example.com     |         2022
+     43 | Quincy Scott  | 555-0142 | quincy.scott@example.com  |         2022
+   1005 | Emma Davis    | 555-3456 | emma.davis@example.com    |         2022
+create(19 rows)
+
+
+postgres=# select * from employees order by joining_year limit 19;
+ emp_id |     emp_name     |  phone   |            email             | joining_year 
+--------+------------------+----------+------------------------------+--------------
+   1004 | David Brown      | 555-4321 | david.brown@example.com      |         2018
+      8 | Hannah Turner    | 555-0107 | hannah.turner@example.com    |         2018
+     60 | Harrison Lewis   | 555-0159 | harrison.lewis@example.com   |         2019
+     50 | Xena Rogers      | 555-0149 | xena.rogers@example.com      |         2019
+     31 | Ella Walker      | 555-0130 | ella.walker@example.com      |         2019
+      9 | Ian Miller       | 555-0108 | ian.miller@example.com       |         2019
+   1009 | Iris Martin      | 555-1122 | iris.martin@example.com      |         2019
+
+_____________________________ Limit _____________________________
+postgres=# select * from employees order by joining_year limit 19;
+
+postgres=# select * from employees LIMIT 20 offset 40;
+ emp_id |    emp_name    |  phone   |           email            | joining_year 
+--------+----------------+----------+----------------------------+--------------
+     31 | Ella Walker    | 555-0130 | ella.walker@example.com    |         2019
+     32 | Freddie Harris | 555-0131 | freddie.harris@example.com |         2020
+     33 | Gina Bell      | 555-0132 | gina.bell@example.com      |         2021
+
+
+ _____________________________Avg _____________________________
+select avg(joining_year) from employees;
+          avg          
+-----------------------
+ 2020.9166666666666667
+(1 row)
+
+postgres=# select avg(joining_year) :: NUMERIC(4,0) from employees;
+ avg  
+------
+ 2021
+(1 row)
+
+_____________________________ in \ not in _____________________________
+postgres=# select emp_name, email, joining_year from employees where joining_year not in (2022, 2021);
+     emp_name     |            email             | joining_year 
+------------------+------------------------------+--------------
+ Alice Johnson    | alice.johnson@example.com    |         2020
+ Bob Smith        | bob.smith@example.com        |         2019
+ David Brown      | david.brown@example.com      |         2018
+ Frank Green      | frank.green@example.com      |         2020
+ Grace Hall       | grace.hall@example.com       |         2023
+ 
+ _____________________________ Where _____________________________
+ 
+ postgres=# select * from employees where joining_year between 2020 and 2021;
+ emp_id |    emp_name     |  phone   |            email            | joining_year | country 
+--------+-----------------+----------+-----------------------------+--------------+---------
+   1001 | Alice Johnson   | 555-1234 | alice.johnson@example.com   |         2020 | 
+   1003 | Carol White     | 555-8765 | carol.white@example.com     |         2021 | 
+   1006 | Frank Green     | 555-6543 | frank.green@example.com     |         2020 | 
+   1008 | Henry Clark     | 555-0987 | henry.clark@example.com     |         2021 | 
+      1 | Alice Smith     | 555-0100 | alice.smith@example.com     |         2020 | 
+      2 | Bob Johnson     | 555-0101 | bob.johnson@example.com     |         2021 | 
+      4 | David White     | 555-0103 | david.white@example.com     |         2020 | 
+      5 | Eva Green       | 555-0104 | eva.green@example.com       |         2021 | 
+      7 | Grace Lee       | 555-0106 | grace.lee@example.com       |         2021 | 
+     10 | Jack Wilson     | 555-0109 | jack.wilson@example.com     |         2020 | 
+     11 | Karen Scott     | 555-0110 | karen.scott@example.com     |         2021 | 
+     13 | Mona Patel      | 555-0112 | mona.patel@example.com      |         2020 | 
+
+
+_____________________________ AS _____________________________
+postgres=# select emp_name ||'     :     '|| email as EMAILDATA  from employees limit 20;
+                     emaildata                     
+---------------------------------------------------
+ Alice Johnson     :     alice.johnson@example.com
+ Bob Smith     :     bob.smith@example.com
+ Carol White     :     carol.white@example.com
+ David Brown     :     david.brown@example.com
+ Emma Davis     :     emma.davis@example.com
+ 
+
+
+_____________________________ Join Tables _____________________________
+
+create table category(category_id INT PRIMARY KEY, category_name);
+
+
+postgres=# select * from category;
+ category_id | category_name  
+-------------+----------------
+           1 | Baverages
+           2 | Condiments
+           3 | Confections
+           4 | Dairy Products
+
+ create table products(product_id INT PRIMARY KEY, product_name varchar(200), category_id INT, FOREIGN KEY(category_id) REFERENCES category(category_id));
+
+
+postgres=# insert into products(product_id, product_name) values (33, Geitost,Dairy Products),(34, 'sasquatch Ale',Baverages),(36,'Inlagd Sill', SeaFood);^C
+postgres=# INSERT INTO products (product_id, product_name, category_id) VALUES
+(1, 'Apple Juice', 1),     
+(2, 'Ginger Sauce', 2),      
+(3, 'Chocolate Cake', 3),  
+(4, 'Cheddar Cheese', 4);
+
+
+_____________________________ InneR Join _____________________________
+postgres=# select product_id, product_name, category_name from products INNER JOIN category ON products.category_id = category.category_id;
+ product_id |  product_name  | category_name  
+------------+----------------+----------------
+          1 | Apple Juice    | Baverages
+          2 | Ginger Sauce   | Condiments
+          3 | Chocolate Cake | Confections
+          4 | Cheddar Cheese | Dairy Products
+
+
+
+
+_____________________________ Cross Join _____________________________
+select product_id, product_name, category_name from products cross join categories;
+
+
+
+roduct_id |      product_name      | category_name  
+------------+------------------------+----------------
+          1 | Johns Fruit Cake       | Beverages
+          1 | Johns Fruit Cake       | Condiments
+          1 | Johns Fruit Cake       | Confections
+          1 | Johns Fruit Cake       | Dairy Products
+          1 | Johns Fruit Cake       | Grains/Cereals
+          1 | Johns Fruit Cake       | Meat/Poultry
+          1 | Johns Fruit Cake       | Produce
+          1 | Johns Fruit Cake       | Seafood
+          2 | Marys Healthy Mix      | Beverages
+          2 | Marys Healthy Mix      | Condiments
+          2 | Marys Healthy Mix      | Confections
+          2 | Marys Healthy Mix      | Dairy Products
+          2 | Marys Healthy Mix      | Grains/Cereals
+          2 | Marys Healthy Mix      | Meat/Poultry
+          2 | Marys Healthy Mix      | Produce
+          2 | Marys Healthy Mix      | Seafood
+          3 | Peters Scary Stuff     | Beverages
+          3 | Peters Scary Stuff     | Condiments
+          3 | Peters Scary Stuff     | Confections
+          3 | Peters Scary Stuff     | Dairy Products
+          3 | Peters Scary Stuff     | Grains/Cereals
+          3 | Peters Scary Stuff     | Meat/Poultry
+          3 | Peters Scary Stuff     | Produce
+          3 | Peters Scary Stuff     | Seafood
+          4 | Jims Secret Recipe     | Beverages
+          4 | Jims Secret Recipe     | Condiments
+          4 | Jims Secret Recipe     | Confections
+          4 | Jims Secret Recipe     | Dairy Products
+          4 | Jims Secret Recipe     | Grains/Cereals
+          4 | Jims Secret Recipe     | Meat/Poultry
+          4 | Jims Secret Recipe     | Produce
+          4 | Jims Secret Recipe     | Seafood
+          5 | Elisabeths Best Apples | Beverages
+          5 | Elisabeths Best Apples | Condiments
+          5 | Elisabeths Best Apples | Confections
+          5 | Elisabeths Best Apples | Dairy Products
+          5 | Elisabeths Best Apples | Grains/Cereals
+          5 | Elisabeths Best Apples | Meat/Poultry
+

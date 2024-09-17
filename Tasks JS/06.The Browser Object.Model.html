@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Java Script Programmes</title>
+</head>
+<body>
+<h2>Window Width And Height</h2>
+<p id='d1'></p>
+
+<h2>Screen Width and Height</h2>
+<p id='d2'></p>
+
+<h2>Screen Available Height</h2>
+<p id='d3'></p>
+
+<h2>Screen Pixel Depth</h2>
+<p id='d4'></p>
+
+<h2>Page Location is :</h2>
+<p id='d5'></p>
+
+<h2>Page Host is :</h2>
+<p id='d6'></p>
+
+<h2>Page Path is :</h2>
+<p id='d7'></p>
+
+<h2>Page Protocol is :</h2>
+<p id='d8'></p>
+
+<h2>Page Port is :</h2>
+<p id='d9'></p>
+
+<button onclick="newDoc()">Load Google.com</button>
+
+<button onclick="goBack()">Load History Back</button>
+
+
+
+<script type="text/javascript">
+document.getElementById('d1').innerHTML = window.innerWidth +"px x "+ window.innerHeight +"px";
+
+document.getElementById('d2').innerHTML = screen.width +"px x "+screen.height+"px" ;
+
+document.getElementById('d3').innerHTML = screen.availHeight +"px , Color Depth "+screen.colorDepth;
+
+document.getElementById('d4').innerHTML = screen.pixelDepth;
+
+document.getElementById('d5').innerHTML = window.location.href;
+
+document.getElementById('d6').innerHTML = window.location.hostname;
+
+document.getElementById('d7').innerHTML = window.location.pathname;
+
+document.getElementById('d8').innerHTML = window.location.protocol;
+
+document.getElementById('d9').innerHTML = window.location.port;
+
+function newDoc(){
+	window.location.assign('https://www.google.com')
+}
+
+function goBack(){
+	window.history.back()
+}
+
+
+
+
+</script>
+</body>
+</html>

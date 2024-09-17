@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+	
+// TO get cookies  python3 -m http.server in browser
+
+	setCookies('employee','Karan Malhotra',365);
+	setCookies('contact',76982343,365);
+	setCookies('id','DDB2442',365);
+
+	console.log(getCookie("employee"));
+
+	function setCookies(name, value, expires){
+		const date = new Date()
+		date.setTime(date.getTime + (expires * 24 * 60 * 60 * 100));
+		let expDate = 'expires ='+ date.toUTCString();
+		console.log(expDate)
+		document.cookie = `${name} = ${value}; ${expDate}; path=/`;
+	}
+	function deleteCookie(name){
+		setCookies(name, null, null);
+	}
+
+	function getCookie(name){
+		const cookieDecoded = decodeURIComponent(document.cookie);
+		const cArray = cookieDecoded.split("; ")
+		let result = null;
+
+		cArray.forEach(element => {
+			if(element.indexOf(name) == 0){
+				result = element.substring(name.length + 1)
+			}
+		})
+		return result;
+	}
+	
+
+
+</script>
+<body>
+	<p id ='d1'></p>
+</body>
+</html>

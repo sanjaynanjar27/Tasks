@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+    <h2 id='d1'></h2>
+    <h2 id='d2'></h2>
+    <h2 id='d3'></h2>
+
+    
+
+    <script>
+        // word = 'javascriptloops'
+        // for (let x of word){
+        //     if('aeiou'.includes(x)){
+        //         console.log(x);
+        //     }
+    
+        // }
+        // for (let c of word){
+        //     if(!"aeiou".includes(c)){
+        //         console.log(c)
+        //     }
+        // }
+    
+    
+        var str = "hello"; 
+        // let result = text.match(/(aa)(bb)/d);
+        // console.log(result)
+        // var str = "Interesting";
+    // if (/in[a-z]*ing/i.test(str)) {
+    // console.log(true)
+    // }
+    // else{
+    //     console.log(false)
+    // }
+    
+    let even = ''
+    let tab = ''
+    // Even Numbers 
+    
+    for (let i=0; i < 10; i++){
+        if (i % 2 == 0){
+            even += i + "  "
+        }
+    }
+    console.log(even);
+    document.getElementById('d1').innerHTML = even
+
+    for (let i = 1; i<= 10; i++){
+        tab += i +"*"+ 2+ "="+""+i * 2 + "\n";
+
+    }
+    document.getElementById('d2').innerHTML = tab
+    var sum = 0
+    a = new Array(1,2,4,2,2,1,23,45,54)
+    a.forEach(element => {
+        sum += element;
+        
+    });
+    console.log(sum)
+
+    function revArray(arr){
+
+    }
+
+
+
+    function toMiles(val){
+        var div = val * 0.62137119;
+        return div
+    }
+
+    document.getElementById('d3').innerHTML = toMiles(2) + " Miles";
+    
+    </script>
+</body>
+</html>
+

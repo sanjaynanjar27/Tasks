@@ -1,0 +1,41 @@
+<script>
+    // const socket = new WebSocket("ws://localhost:8082");
+
+    // socket.addEventListener("open",(event) => {
+    //     socket.send("Hello Server!");
+    // })
+    // socket.addEventListener("message",(event) => {console.log("Message From Server", event.data);});
+
+
+
+// async function getText(file) {
+// const response = await fetch(file);
+// const text = await response.text();
+//   document.getElementById("demo").innerHTML = text;
+// }
+// getText("http://localhost:8000/fetch_info.txt");
+
+// function loadDoc(){
+//     const xhttp = new XMLHttpRequest();
+//     xhttp.onload = function(){
+//         document.getElementById('demo').innerHTML = this.responseText;      
+//     }   
+//     xhttp.open("GET","http://localhost:8000/fetch_info.txt",true);
+//     xhttp.send()
+// }
+async function getText(file) {
+  try {
+    const response = await fetch(file);
+    if (!response.ok) throw new Error('Network response was not ok');
+    const text = await response.text();
+    document.getElementById("demo").innerHTML = text;
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+  }
+}
+
+getText("http://localhost:8000/fetch_info.txt");
+
+</script>
+<!-- <button onclick="loadDoc()">Submit</button> -->
+<p id="demo"></p> 

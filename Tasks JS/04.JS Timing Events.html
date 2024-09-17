@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Timing Events
+	</title>
+</head>
+<body>
+<button onclick="myVar = setTimeout(timingEvent,2000);" >Try this button</button>
+
+<button onclick="clearTimeout(myVar)">Stop Action</button>
+
+<p id="d1"></p>
+
+<button onclick="clearTimeout(myTimeStamp)">Stop Timer</button>
+
+
+<script type="text/javascript">
+
+	function timingEvent() {
+		alert("Heey !")
+	}
+
+	let myTimeStamp = setInterval(startTimer,1000)
+	function startTimer(){
+		const d = new Date();
+		document.getElementById('d1').innerHTML = d.toLocaleTimeString();
+	}
+</script>
+</body>
+</html>

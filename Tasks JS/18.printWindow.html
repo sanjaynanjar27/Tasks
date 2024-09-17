@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img onmousedown="myPrinter()" src="workplace.jpg" alt="image of a car" width="400" height="300">
+
+    <h2 id="t1">Time Is  : </h2>
+    <h2 id="d1">Date Is  : </h2>
+
+
+    <script>
+        function myPrinter(){
+            print();
+        }
+
+        var today = new Date();
+        var day = today.getDay();
+        var daylist = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        //Day 
+        console.log("Today Is :" + daylist[day]);
+        var hour = today.getHours();
+        var mins = today.getMinutes();
+        var secs = today.getSeconds();
+        var ms = today.getMilliseconds();
+        console.log(today.getHours() +":"+ today.getMinutes()+":"+today.getSeconds()+":"+today.getMilliseconds());
+        var prepand = (hour >= 12) ? " PM " : " AM ";
+
+        hour = (hour >= 12) ? hour - 12 : hour;
+        console.log(hour+":"+ mins +""+prepand)
+        document.getElementById('t1').innerHTML = hour+":"+ mins +":"+secs+":"+ms+""+prepand;
+        document.getElementById('d1').innerHTML = (daylist[day])
+
+    </script>
+</body>
+</html>

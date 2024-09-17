@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function myData(){
+        const msg = document.getElementById('d1');
+        msg.innerHTML = 'Done!';
+
+        let x = document.getElementById('num').value;
+        try {
+            if (x.trim() == "") throw "Empty";
+
+            if (isNaN(x)) throw "Not A Number";
+
+            x = Number(x)
+
+            if (x < 5) throw "Too Low";
+
+            if (x > 10) throw "Too High";
+            
+        } catch (error) {
+            msg.innerHTML = error
+            
+        }
+       }
+    </script>
+</head>
+<body>
+    <input type="text" id="num">
+    <button onclick="myData()">Test Your Input Value</button>
+    <p id="d1"></p>
+</body>
+</htm

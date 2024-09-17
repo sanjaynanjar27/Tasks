@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p = new Promise((resolve, reject) => {
+            let a = 1 + 4;
+            if (a == 3){
+                resolve('Sucessfull')
+            } else {
+                reject('Failed')
+            }
+        })
+
+        p.then((msg) => {console.log("This is then ="+msg)
+
+        }).catch((msg) => {console.log("This Is Catch ="+msg)})
+
+        let myPromise = new Promise((resolve, reject) =>
+    {
+        let x = 5
+        if (x == 0){
+            resolve("Ok");
+        } else {
+            reject("Denied !");
+
+        }
+    });
+    myPromise.then(
+        function(ok) {console.log(ok)},
+        function(noOk) {console.log(noOk)}
+    )
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Alerts Using Conditions</title>
+</head>	
+<body>
+<button onclick="myFunction()">Confirm</button>
+<button onclick="inputFunction()">Enter SOmething</button>
+
+
+<p id='d1'></p>
+<p id='d2'></p>
+
+
+<script type="text/javascript">
+function myFunction(){
+	var txt;
+	if(confirm("Press A Button")){
+		txt = "You Pressed Ok";
+	}else{
+		txt = "Action Cacelled";
+	}
+	document.getElementById('d1').innerHTML = txt;
+}
+
+
+function inputFunction(){
+	let name = prompt("Enter Your Name")
+	if (name == null || name == ""){
+		text = "Enter Valid Informaion";
+	}else{
+		text = "Hello "+ name +" \nHow are You";
+	}
+	document.getElementById('d2').innerHTML = text
+}
+</script>
+</body>
+</html>

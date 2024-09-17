@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="demo1"  >Text To Be Changed</h1>
+    <button onclick="changeFont()">Change Text</button>
+    <button onclick="hidetext()">Hide Text</button>
+    <button onclick="showText()">Show Text</button>
+
+    <p id="demo2"  >Show List Of Data From Loop</p>
+    <button onclick="dataWithHtmlInJs()">Show Text</button>
+    <button onclick="this.innerHTML = Date()">Show Text</button>
+    
+    <button id = 'hit' onclick="this.style.display = 'none';">Can we Hide This Button?</button>
+    
+    <p id="demo3" ></p>
+    <button onclick="myAlt = setTimeout(showAlert, 2000)">Show Alert</button>
+    <button onclick="clearTimeout(myAlt)">Cancel Action</button>
+    <button onclick="setCookies()">Set Cookies</button>
+    
+    
+
+
+
+    <script>
+        function changeFont(){
+            document.getElementById('demo1').innerHTML = "Here Is Changed Text";
+            document.getElementById('demo1').style.fontFamily = "'Courier New', Courier, monospace";
+        }
+        function hidetext(){
+            document.getElementById('demo1').style.display = 'none';
+        }
+        function showText() {
+            document.getElementById('demo1').style.display =  'block';
+        }
+        function dataWithHtmlInJs(){
+            header = "Example Of Loop and How to display it in the Html template";
+            data = ['Javascript', 'html', 'java', 'python'];
+            let html = `<h1>${header}</h1><ul>`;
+            for (const x of data){
+               html += `<li>${x}</li>`;
+            }
+            html += `</ul>`;
+
+            document.getElementById('demo2').innerHTML = html;
+        }
+
+        function showAlert(){
+            alert("Good Morning");
+        }
+	function setCookies(){
+        document.cookie = "name=kiran; expires='2025-10-17T05:51:06.125Z'; path = /"
+    }
+    </script>
+</body>
+</html>

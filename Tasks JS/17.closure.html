@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myFunction()"> Count </button>
+    <p id="demo">0</p>
+    <script>
+        // const add = (function(){
+        //     let counter = 0;
+        //     return function() {
+        //         counter += 1;
+        //         return counter;
+        //     }
+        // })();
+        // function myFunction(){
+        //     document.getElementById('demo').innerHTML = add();
+        // }
+
+        document.getElementById('demo').innerHTML = add()
+
+        function add(){
+            let a = 0;
+            function plus(){
+                a += 1;
+            }
+            plus()
+            plus()
+            plus()
+            plus()
+            plus()
+            plus()
+
+            return a
+        }
+
+    </script>
+</body>
+</html>
